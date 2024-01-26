@@ -1,57 +1,75 @@
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
-
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import React from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import {
+  MaterialCommunityIcons,
+  Octicons,
+  AntDesign,
+} from "@expo/vector-icons";
+import { Link, Tabs } from "expo-router";
+import { Pressable } from "react-native";
+import { useTheme } from "react-native-paper";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+        tabBarStyle: {
+          borderTopWidth: 0,
+          elevation: 0,
+        },
+        tabBarActiveTintColor: "#2F322F",
+        headerShown: false,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          headerShown: false,
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: "Baby",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="baby-face-outline"
+              size={26}
+              style={{ marginBottom: -3 }}
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="explore"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Explore",
+          tabBarIcon: ({ color }) => (
+            <AntDesign
+              name="appstore-o"
+              size={26}
+              style={{ marginBottom: -3 }}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="milestones"
+        options={{
+          title: "Milestones",
+          tabBarIcon: ({ color }) => (
+            <Octicons
+              name="milestone"
+              size={25}
+              style={{ marginBottom: -3 }}
+              color={color}
+            />
+          ),
         }}
       />
     </Tabs>
