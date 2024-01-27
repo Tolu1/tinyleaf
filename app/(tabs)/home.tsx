@@ -7,24 +7,21 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { Avatar, Badge, Icon, useTheme } from "react-native-paper";
+import { Badge, Icon, useTheme } from "react-native-paper";
 import BabyProfile from "@/components/home/BabyProfile";
 import Spacing from "@/constants/Spacing";
 import Spacer from "@/components/Spacer";
 import { IconSource } from "react-native-paper/lib/typescript/components/Icon";
 import { FlatGrid } from "react-native-super-grid";
 import MilestoneCarousel from "@/components/home/MilestoneCarousel";
+import Avatar from "@/components/Avatar";
 
 function Header() {
-  const { colors } = useTheme();
-
   return (
     <View style={styles.header}>
       <View></View>
       <Text style={styles.headerText}>Home</Text>
-      <View style={[styles.avatarContainer, { borderColor: colors.primary }]}>
-        <Avatar.Image size={35} source={{ uri: "https://i.pravatar.cc/32" }} />
-      </View>
+      <Avatar />
     </View>
   );
 }
