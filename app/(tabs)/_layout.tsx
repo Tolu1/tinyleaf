@@ -8,6 +8,7 @@ import {
 import { Link, Tabs } from "expo-router";
 import { Pressable } from "react-native";
 import { useTheme } from "react-native-paper";
+import Badgeable from "@/components/Badgeable";
 
 export default function TabLayout() {
   const { colors } = useTheme();
@@ -49,12 +50,14 @@ export default function TabLayout() {
         options={{
           title: "Explore",
           tabBarIcon: ({ color }) => (
-            <AntDesign
-              name="appstore-o"
-              size={26}
-              style={{ marginBottom: -3 }}
-              color={color}
-            />
+            <Badgeable badgeCount={2}>
+              <AntDesign
+                name="appstore-o"
+                size={26}
+                style={{ marginBottom: -3 }}
+                color={color}
+              />
+            </Badgeable>
           ),
         }}
       />
@@ -63,12 +66,14 @@ export default function TabLayout() {
         options={{
           title: "Milestones",
           tabBarIcon: ({ color }) => (
-            <Octicons
-              name="milestone"
-              size={25}
-              style={{ marginBottom: -3 }}
-              color={color}
-            />
+            <Badgeable badgeCount={3}>
+              <Octicons
+                name="milestone"
+                size={25}
+                style={{ marginBottom: -3 }}
+                color={color}
+              />
+            </Badgeable>
           ),
         }}
       />
