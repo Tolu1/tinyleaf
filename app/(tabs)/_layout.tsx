@@ -1,12 +1,10 @@
 import React from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   MaterialCommunityIcons,
   Octicons,
   AntDesign,
 } from "@expo/vector-icons";
-import { Link, Tabs } from "expo-router";
-import { Pressable } from "react-native";
+import { Tabs } from "expo-router";
 import { useTheme } from "react-native-paper";
 import Badgeable from "@/components/Badgeable";
 

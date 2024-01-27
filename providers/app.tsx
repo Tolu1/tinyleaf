@@ -4,6 +4,7 @@ import {
   MD3LightTheme as DefaultTheme,
 } from "react-native-paper";
 import Colors from "@/constants/Colors";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const theme: typeof DefaultTheme = {
   ...DefaultTheme,
@@ -29,7 +30,13 @@ function AppProvider({
 }: {
   children: React.ReactNode;
 }): React.JSX.Element {
-  return <PaperProvider theme={theme}>{children}</PaperProvider>;
+  return (
+    <PaperProvider theme={theme}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        {children}
+      </GestureHandlerRootView>
+    </PaperProvider>
+  );
 }
 
 export default AppProvider;
