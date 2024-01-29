@@ -44,10 +44,12 @@
     "react-native-screens": "~3.29.0",
     "react-native-super-grid": "^5.0.0",
     "react-native-typewriter": "^0.7.0",
-    "react-native-web": "~0.19.6"
+    "react-native-web": "~0.19.6",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/jest": "^29.5.11",
     "@types/react": "~18.2.45",
     "@types/react-native-typewriter": "^0.7.4",

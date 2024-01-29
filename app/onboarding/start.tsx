@@ -11,6 +11,7 @@ import { useTheme } from "react-native-paper";
 import LottieView from "lottie-react-native";
 import { router } from "expo-router";
 import TypeWriter from "react-native-typewriter";
+import { useOnboardingStore } from "@/store/onboarding.store";
 
 const milestonesSuggestions = [
   "Baby's First Words",
@@ -67,6 +68,17 @@ function Start() {
     return () => clearTimeout(timeoutId);
   }, []);
 
+  const setOnboarded = useOnboardingStore((state) => state.setOnboarded);
+
+  const handleSubmit = async () => {
+    try {
+      setOnboarded(true);
+      router.replace("/home");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <SafeAreaView style={safeContainerStyle}>
       <View style={styles.container}>
@@ -98,7 +110,7 @@ function Start() {
           autoFocus={true}
           textAlign="center"
           returnKeyType="done"
-          onSubmitEditing={() => router.replace("/home")}
+          onSubmitEditing={handleSubmit}
         />
       </View>
     </SafeAreaView>
