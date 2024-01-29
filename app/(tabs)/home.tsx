@@ -86,7 +86,7 @@ function Home() {
 
   return (
     <SafeAreaView style={safeContainerStyle}>
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <Header />
         <Text style={{ color: colors.onTertiary }} variant="bodyMedium">
           Hello Fadekemi,
