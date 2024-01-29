@@ -165,7 +165,7 @@ function Onboarding() {
     if (currentIndex < slides.length - 1) {
       slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
     } else {
-      router.replace("/home");
+      router.replace("/onboarding/start");
     }
   };
 
@@ -173,7 +173,7 @@ function Onboarding() {
     <SafeAreaView style={safeContainerStyle}>
       <View style={styles.container}>
         <Text
-          onPress={() => router.replace("/home")}
+          onPress={() => router.replace("/onboarding/start")}
           style={[styles.skipText, { color: colors.onTertiary }]}
         >
           Skip
