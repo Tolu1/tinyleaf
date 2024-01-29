@@ -31,6 +31,7 @@ function MilestoneCard({ title, description, date }: MilestoneCardProps) {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    paddingBottom: 60,
     borderRadius: 10,
     marginBottom: Spacing,
     shadowColor: "#000",

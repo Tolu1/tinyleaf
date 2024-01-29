@@ -1,5 +1,5 @@
 import { Text } from "../StyledText";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import React from "react";
 import Spacing from "@/constants/Spacing";
 import { useTheme } from "react-native-paper";
@@ -13,8 +13,24 @@ function BabyProfile() {
       style={[styles.container, { backgroundColor: colors.primaryContainer }]}
     >
       <View style={[styles.firstRow]}>
-        <View>
+        <View style={{ position: "relative" }}>
           <Ionicons name="ellipse" size={80} color={colors.secondary} />
+          <View
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: [{ translateX: -20 }, { translateY: -20 }],
+            }}
+          >
+            <Image
+              style={{
+                width: 40,
+                height: 40,
+              }}
+              source={require("@/assets/images/pram.png")}
+            />
+          </View>
         </View>
         <Text style={{ color: colors.onTertiary }} variant="bodyMedium">
           Your Little One's Info

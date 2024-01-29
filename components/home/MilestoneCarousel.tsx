@@ -49,11 +49,11 @@ export default function MilestoneCarousel() {
       <Carousel
         ref={carouselRef}
         width={width}
-        height={100}
+        height={150}
         data={milestones}
         mode="vertical-stack"
         modeConfig={{
-          showLength: 10,
+          showLength: 2,
         }}
         scrollAnimationDuration={1000}
         renderItem={({ item }) => (

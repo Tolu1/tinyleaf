@@ -6,12 +6,13 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Image,
+  ImageSourcePropType,
 } from "react-native";
 import { Badge, Icon, useTheme } from "react-native-paper";
 import BabyProfile from "@/components/home/BabyProfile";
 import Spacing from "@/constants/Spacing";
 import Spacer from "@/components/Spacer";
-import { IconSource } from "react-native-paper/lib/typescript/components/Icon";
 import { FlatGrid } from "react-native-super-grid";
 import MilestoneCarousel from "@/components/home/MilestoneCarousel";
 import Avatar from "@/components/Avatar";
@@ -29,7 +30,7 @@ function Header() {
 type MenuCardProps = {
   key: string;
   label: string;
-  icon: IconSource;
+  image: ImageSourcePropType;
 };
 
 function MenuCard({ item }: { item: MenuCardProps }) {
@@ -39,7 +40,7 @@ function MenuCard({ item }: { item: MenuCardProps }) {
     <TouchableOpacity
       style={[styles.menuCard, { backgroundColor: colors.primaryContainer }]}
     >
-      <Icon source="camera" color={colors.primary} size={20} />
+      <Image style={{ width: 90, height: 90 }} source={item.image} />
       <Text>{item.label}</Text>
     </TouchableOpacity>
   );
@@ -53,44 +54,32 @@ function Home() {
   const navigationMenuItems = [
     {
       key: "milestone",
-      icon: {
-        uri: "https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/pill-icon.png",
-      },
+      image: require("@/assets/images/pram.png"),
       label: "Milestone Moments",
     },
     {
       key: "essentials",
-      icon: {
-        uri: "https://icons.iconarchive.com/icons/icons8/windows-8/256/Sports-Running-icon.png",
-      },
+      image: require("@/assets/images/pram.png"),
       label: "Baby Essentials",
     },
     {
       key: "nap",
-      icon: {
-        uri: "https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/pill-icon.png",
-      },
+      image: require("@/assets/images/pram.png"),
       label: "Nap Time",
     },
     {
       key: "tips",
-      icon: {
-        uri: "https://icons.iconarchive.com/icons/icons8/windows-8/256/Sports-Running-icon.png",
-      },
+      image: require("@/assets/images/pram.png"),
       label: "Health Tips",
     },
     {
       key: "workout",
-      icon: {
-        uri: "https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/pill-icon.png",
-      },
+      image: require("@/assets/images/pram.png"),
       label: "Mommy & Me Workouts",
     },
     {
       key: "hacks",
-      icon: {
-        uri: "https://icons.iconarchive.com/icons/icons8/windows-8/256/Sports-Running-icon.png",
-      },
+      image: require("@/assets/images/pram.png"),
       label: "Parent Hacks",
     },
   ];
@@ -135,7 +124,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: Spacing * 2,
+    marginHorizontal: Spacing * 2,
   },
   header: {
     flexDirection: "row",
