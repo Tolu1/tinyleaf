@@ -48,6 +48,11 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
+          name="milestones/create"
+          options={{ headerShown: false, presentation: "modal" }}
+        />
+        <Stack.Screen name="milestones/[id]" options={{ headerShown: false }} />
+        <Stack.Screen
           name="onboarding/index"
           options={{ headerShown: false }}
         />
